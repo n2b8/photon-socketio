@@ -1,10 +1,10 @@
 {
-  "name": "chat-example",
-  "version": "0.0.0",
-  "description": "A chat example to showcase how to use `socket.io` with a static `express` server with `async` for control flow.",
+  "name": "photon-tmp-hmd",
+  "version": "1.0.0",
+  "description": "Using a particle photon and simple node server with socket.io and angular.js to view live temperature and humidity data.",
   "main": "server.js",
   "repository": "",
-  "author": "Mostafa Eweda <mo.eweda@gmail.com>",
+  "author": "Jake McCaig <jake@downparty.io",
   "dependencies": {
     "async": "~0.2.8",
     "express": "~3.2.4",
