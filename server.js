@@ -8,6 +8,7 @@ var http = require('http');
 var path = require('path');
 var spark = require('spark');
 var socketio = require('socket.io');
+var config = require('./config/config.js');
 
 var express = require('express');
 var router = express();
@@ -22,17 +23,17 @@ var callback = function () {
   console.log('Succesfully logged in!');
 };
 
-spark.login({accessToken: 'c548b041552f59498adb88a6b5806c824683cfdd'}, callback);
+spark.login({accessToken: config.device.token}, callback);
 
 io.on('connection', function (socket) {
   
   //Get temp
-  spark.getEventStream('Temperature', '28002e000347343337373737', function(data) {
+  spark.getEventStream('Temperature', config.device.deviceId, function(data) {
     socket.emit('temperature', data);
   });
 
   //Get humidity
-  spark.getEventStream('Humidity', '28002e000347343337373737', function(data) {
+  spark.getEventStream('Humidity', config.device.deviceId, function(data) {
     socket.emit('humidity', data);
   });
   
