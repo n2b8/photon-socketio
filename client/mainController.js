@@ -8,6 +8,7 @@ angular.module('controllers', [])
         
         socket.on('humidity', function(data) {
             $scope.humidity = data.data;
+            $scope.time = data.published_at;
         });
         
         socket.on('temperature', function(data) {
