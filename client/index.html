@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" ng-app='app'>
+  <head>
+    <title>Home Conditions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-responsive.min.css">
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body ng-controller='mainController'>
+    <div ng-model='temperature'><h1>Temp: {{ temperature }}</h1></div>
+    <div ng-model='humidity'><h1>Humidity: {{ humidity }}</h1></div>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/socket.js"></script>
+    <script src="/app.js"></script>
+    <script src="/mainController.js"></script>
+    <script src="/socketFactory.js"></script>
+  </body>
+</html>
