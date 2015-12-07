@@ -28,13 +28,11 @@ io.on('connection', function (socket) {
   
   //Get temp
   spark.getEventStream('Temperature', '28002e000347343337373737', function(data) {
-    console.log("Temperature: " + data.data);
     socket.emit('temperature', data);
   });
 
   //Get humidity
   spark.getEventStream('Humidity', '28002e000347343337373737', function(data) {
-    console.log("Humidity: " + data.data);
     socket.emit('humidity', data);
   });
   
