@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Using a particle photon and simple node server with socket.io and angular.js to view live temperature and humidity data.",
   "main": "server.js",
-  "repository": "",
-  "author": "Jake McCaig <jake@downparty.io",
+  "repository": "https://github.com/n2b8/photon-tmp-hmd.git",
+  "author": "Jake McCaig <jake@downparty.io>",
   "dependencies": {
     "async": "~0.2.8",
     "express": "~3.2.4",
