@@ -23,14 +23,21 @@ void setup() {
     // Start DHT sensor
     dht.begin();
     
-    // OLED
-    oled.begin();     // Initialize the OLED
-    oled.clear(ALL);  // Clear the display's internal memory
-    oled.display();   // Display what's in the buffer (splashscreen)
-    delay(1000);      // Delay 1000 ms
-    oled.clear(PAGE); // Clear the buffer.
-
-    randomSeed(analogRead(A0) + analogRead(A1));
+    // OLED INIALIZATION
+    oled.begin();        // Initialize the OLED
+    oled.clear(ALL);     // Clear the display's internal memory
+    oled.clear(PAGE);    // Clear the buffer.
+    
+    // CENTER CURSOR
+    int middleX = oled.getLCDWidth() / 2;  // Get X axis center
+    int middleY = oled.getLCDHeight() / 2; // Get Y axis center
+    oled.setCursor(middleX - (oled.getFontWidth() * (3)), middleY - (oled.getFontWidth() / 2)); // Set cursor as close to the center as possible.
+    
+    // PRINT TITLE
+    oled.setFontType(0);  // Smallest font
+    oled.print("BrewFi"); // Display BrewFi to the screen
+    oled.display();
+    delay(1500);          // Delay 1.5 seconds
 
 }
 
