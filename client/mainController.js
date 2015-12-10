@@ -26,6 +26,7 @@ angular.module('controllers', [])
         
         $scope.setPos = function () {
           $http.post('/api/servo', $scope.setPosition);
+          $scope.setPosition.position = '';
         };
         
     }]);
