@@ -8,15 +8,17 @@
 #define DHTPIN 5
 #define DHTTYPE DHT22
 
-// Variables
+// DHT sensor
+DHT dht(DHTPIN, DHTTYPE);
 int temp;
 int humidity;
 
-// DHT sensor
-DHT dht(DHTPIN, DHTTYPE);
-
 // OLED
 MicroOLED oled;
+
+// SERVO
+Servo serv;
+int pos = 0;
 
 void setup() {
 
@@ -38,6 +40,12 @@ void setup() {
     oled.print("BrewFi"); // Display BrewFi to the screen
     oled.display();
     delay(1500);          // Delay 1.5 seconds
+    
+    // SERVO
+    serv.attach(D0);
+    serv.write(pos);
+    Spark.function("setpos", setPos);
+    Spark.variable("getpos", &pos, INT);
 
 }
 
@@ -69,12 +77,25 @@ void printData() {
     oled.setFontType(2);         // 7-segment font
     oled.print(temp);            // Print temp reading
     
-    oled.setCursor(0, 24);       // Set cursor to bottom-left
-    oled.setFontType(0);         // Repeat
+    oled.setCursor(0, 16);       // Repeat for humidity
+    oled.setFontType(0);         
     oled.print("HMD: ");
     oled.setFontType(2);
     oled.print(humidity);
     
+    oled.setCursor(0,32);        // Repeat for servo position
+    oled.setFontType(0);
+    oled.print("POS: ");
+    oled.setFontType(2);
+    oled.print(pos);
+    
     oled.display();
     delay(100);
+}
+
+int setPos(String pstn) {
+    pos = pstn.toInt();
+    serv.write(pos);
+    Spark.publish("Position", String(pos));
+    return pos;
 }

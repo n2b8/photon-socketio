@@ -1,6 +1,6 @@
 {
   "name": "photon-tmp-hmd",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "Using a particle photon and simple node server with socket.io and angular.js to view live temperature and humidity data.",
   "main": "server.js",
   "repository": "https://github.com/n2b8/photon-tmp-hmd.git",
