@@ -44,8 +44,10 @@ void setup() {
     // SERVO
     serv.attach(D0);
     serv.write(pos);
+    serv.detach();
     Spark.function("setpos", setPos);
     Spark.variable("getpos", &pos, INT);
+    
 
 }
 
@@ -62,6 +64,7 @@ void loop() {
     delay(1000);
     Spark.publish("Humidity", String(humidity) + "%");
     delay(1000);
+    Spark.publish("Position", String(pos));
     
     // OLED
     printData();
@@ -95,7 +98,9 @@ void printData() {
 
 int setPos(String pstn) {
     pos = pstn.toInt();
+    serv.attach(D0);
     serv.write(pos);
-    Spark.publish("Position", String(pos));
+    delay(1000);
+    serv.detach();
     return pos;
 }

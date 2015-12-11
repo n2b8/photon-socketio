@@ -5,7 +5,7 @@ angular.module('controllers', [])
         $scope.humidity = 0;
         $scope.temperature = 0;
         $scope.time = 0;
-        $scope.currentPos = 0;
+        $scope.currentPos = '';
         $scope.setPosition = {
             position: ''
         };

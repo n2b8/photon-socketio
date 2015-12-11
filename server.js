@@ -8,7 +8,7 @@ var config = require('./config/config.js');
 var express = require('express');
 var router = express();
 var server = http.createServer(router);
-var io = socketio.listen(server, { log: false });
+var io = socketio.listen(server);
 
 router.use(express.static(path.resolve(__dirname, 'client')));
 router.use(bodyParser.json());
