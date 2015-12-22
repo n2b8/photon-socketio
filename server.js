@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 var env = require('./config/env.js');
 var config = require('./config/config.js');
 
-var express = require('express');
 var router = express();
 var server = http.createServer(router);
 var io = socketio.listen(server);
