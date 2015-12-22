@@ -1,8 +1,0 @@
-{
-  "packageManager": "github",
-  "name": "sparkjs",
-  "repo": "spark/sparkjs",
-  "files": {
-    "include": [ "dist/spark.min.js" ]
-  }
-}
