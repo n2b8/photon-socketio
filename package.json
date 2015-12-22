@@ -10,6 +10,8 @@
     "body-parser": "^1.14.1",
     "express": "~3.2.4",
     "socket.io": "~0.9.14",
-    "spark": "^1.0.0"
+    "spark": "^1.0.0",
+    "winston": "^2.1.1",
+    "winston-mongodb": "^1.2.0"
   }
 }
