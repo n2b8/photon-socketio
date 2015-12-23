@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var env = require('./config/env.js');
 var config = require('./config/config.js');
 var logs = require('./database/logs.js');
+var status = require('./database/status.js');
 
 var router = express();
 var server = http.createServer(router);
@@ -26,14 +27,18 @@ io.on('connection', function (socket) {
   //Get temp
   spark.getEventStream('Temperature', config.device.deviceId, function(data) {
     socket.emit('temperature', data);
-    logs.hourlyLogger.info(data);
+    // logs.hourlyLogger.info(data);
   });
 
   //Get humidity
   spark.getEventStream('Humidity', config.device.deviceId, function(data) {
-    socket.emit('humidity', data);
+    // socket.emit('humidity', data);
   });
 });
+
+status.hourly();
+status.daily();
+status.weekly();
 
 server.listen(process.env.PORT || 3000, process.env.IP || "localhost", function(){
   var addr = server.address();
