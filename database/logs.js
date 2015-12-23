@@ -4,21 +4,39 @@ var config = require('../config/config.js');
 
 var logs = {};
 
-logs.hourlyLogger = new (winston.Logger)({
+logs.tempHourlyLogger = new (winston.Logger)({
   transports: [
-    new winston.transports.MongoDB(config.hourlyLoggerOptions)
+    new winston.transports.MongoDB(config.tempHourlyLoggerOptions)
   ]
 });
 
-logs.dailyLogger = new (winston.Logger)({
+logs.hmdHourlyLogger = new (winston.Logger)({
   transports: [
-    new winston.transports.MongoDB(config.dailyLoggerOptions)
+    new winston.transports.MongoDB(config.hmdHourlyLoggerOptions)
   ]
 });
 
-logs.weeklyLogger = new (winston.Logger)({
+logs.tempDailyLogger = new (winston.Logger)({
   transports: [
-    new winston.transports.MongoDB(config.weeklyLoggerOptions)
+    new winston.transports.MongoDB(config.tempDailyLoggerOptions)
+  ]
+});
+
+logs.hmdDailyLogger = new (winston.Logger)({
+  transports: [
+    new winston.transports.MongoDB(config.hmdDailyLoggerOptions)
+  ]
+});
+
+logs.tempWeeklyLogger = new (winston.Logger)({
+  transports: [
+    new winston.transports.MongoDB(config.tempWeeklyLoggerOptions)
+  ]
+});
+
+logs.hmdWeeklyLogger = new (winston.Logger)({
+  transports: [
+    new winston.transports.MongoDB(config.hmdWeeklyLoggerOptions)
   ]
 });
 

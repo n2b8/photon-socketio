@@ -21,6 +21,10 @@ void setup() {
     // Start DHT sensor
     dht.begin();
 
+    // OPEN UP VARIABLES
+    Spark.variable("temp", &temp, INT);
+    Spark.variable("humidity", &humidity, INT);
+
     // OLED INIALIZATION
     oled.begin();        // Initialize the OLED
     oled.clear(ALL);     // Clear the display's internal memory
