@@ -4,7 +4,6 @@ var path = require('path');
 var spark = require('spark');
 var socketio = require('socket.io');
 var bodyParser = require('body-parser');
-var env = require('./config/env.js');
 var config = require('./config/config.js');
 var logs = require('./database/logs.js');
 var status = require('./database/status.js');
